@@ -15,4 +15,24 @@ public class VeiculoJava {
     public void insert(Veiculo v) {
         // inserir no banco de dados
     }
+              
+    public void update(Veiculo v) {
+       
+    }
+    
+    public void delete(Veiculo v) {
+    
+    }
+    
+    public void getById(Veiculo v) {
+       
+    }
+    
+    public void getAllrows(Veiculo v) {
+     
+    }
+    
+    public void getByDone(Veiculo v) {
+      
+    } 
 }

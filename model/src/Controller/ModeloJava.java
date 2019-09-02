@@ -15,4 +15,24 @@ public class ModeloJava {
     public void insert(Modelo o) {
         // inserir no banco de dados
     }
+          
+    public void update(Modelo o) {
+       
+    }
+    
+    public void delete(Modelo o) {
+    
+    }
+    
+    public void getById(Modelo o) {
+       
+    }
+    
+    public void getAllrows(Modelo o) {
+     
+    }
+    
+    public void getByDone(Modelo o) {
+      
+    } 
 }

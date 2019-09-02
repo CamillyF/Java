@@ -16,4 +16,24 @@ public class MarcaJava {
         // inserir no banco de dados
     }
     
+         
+    public void update(Marca m) {
+       
+    }
+    
+    public void delete(Marca m) {
+    
+    }
+    
+    public void getById(Marca m) {
+       
+    }
+    
+    public void getAllrows(Marca m) {
+     
+    }
+    
+    public void getByDone(Marca m) {
+      
+    } 
 }

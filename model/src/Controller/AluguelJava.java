@@ -15,6 +15,7 @@ public class AluguelJava {
     /**
  *
  * @author aluno
+     * @param a
  */
     
     
@@ -22,6 +23,25 @@ public class AluguelJava {
         // inserir no banco de dados
     }
     
+    public void update(Aluguel a) {
+       
+    }
+    
+    public void delete(Aluguel a) {
+    
+    }
+    
+    public void getById(Aluguel a) {
+       
+    }
+    
+    public void getAllrows(Aluguel a) {
+     
+    }
+    
+    public void getByDone(Aluguel a) {
+      
+    }  
 }
 
    

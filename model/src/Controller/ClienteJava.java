@@ -16,4 +16,25 @@ public class ClienteJava {
     public void insert(Cliente c) {
         // inserir no banco de dados
     }
+    
+        
+    public void update(Cliente c) {
+       
+    }
+    
+    public void delete(Cliente c) {
+    
+    }
+    
+    public void getById(Cliente c) {
+       
+    }
+    
+    public void getAllrows(Cliente c) {
+     
+    }
+    
+    public void getByDone(Cliente c) {
+      
+    } 
 }

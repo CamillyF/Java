@@ -15,4 +15,24 @@ public class ProprietarioJava {
     public void insert(Proprietario p) {
         // inserir no banco de dados
     }
+              
+    public void update(Proprietario p) {
+       
+    }
+    
+    public void delete(Proprietario p) {
+    
+    }
+    
+    public void getById(Proprietario p) {
+       
+    }
+    
+    public void getAllrows(Proprietario p) {
+     
+    }
+    
+    public void getByDone(Proprietario p) {
+      
+    } 
 }
