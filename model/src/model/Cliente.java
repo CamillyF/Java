@@ -30,7 +30,7 @@ public class Cliente {
         return this.cnh;
     }
 
-  public void setCnh() {
+  public void setCnh(int cnh) {
         this.cnh = cnh;
     }
   
@@ -46,7 +46,7 @@ public class Cliente {
         return this.telefone;
     }
 
-  public void setTelefone() {
+  public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
   

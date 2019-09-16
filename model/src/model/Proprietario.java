@@ -58,6 +58,16 @@ public class Proprietario {
   public void setAcessoLocacao(String acessolocacao) {
         this.acesso_locacao = acesso_locacao;
     }
+
+    public void setGastos(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setLucros(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
 
 

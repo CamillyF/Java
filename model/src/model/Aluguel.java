@@ -28,7 +28,7 @@ public class Aluguel {
   
   
   
-  public void setid_cliente(int i) throws Exception {
+  public void setId_cliente(int i) throws Exception {
       if (i > 0){
             this.id_cliente = i;
          
@@ -36,13 +36,13 @@ public class Aluguel {
           throw new Exception("id nao pode ser menor ou igual a zero");
       }
   }
-  public int getid_cliente() {
+  public int getId_cliente() {
       return this.id_cliente;
   }
   
   
   
-   public void setid_proprietario(int i) throws Exception {
+   public void setId_proprietario(int i) throws Exception {
       if (i > 0){
             this.id_proprietario = i;
          
@@ -51,7 +51,7 @@ public class Aluguel {
       }
   }
   
-  public int getid_proprietario() {
+  public int getId_proprietario() {
       return this.id_proprietario;
   }
   
@@ -93,5 +93,21 @@ public class Aluguel {
 
     public void setPagamento(String pagamento) {
         this.pagamento= pagamento;
+    }
+
+    public void setDiasLocados(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setValorDiaria(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setDataLocacao(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setValorTotal(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

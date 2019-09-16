@@ -28,7 +28,7 @@ public class Veiculo {
   }
   
   
-   public void setid_marca(int i) throws Exception {
+   public void setId_marca(int i) throws Exception {
       if (i > 0){
             this.id_marca = i;
          
@@ -36,12 +36,12 @@ public class Veiculo {
           throw new Exception("id nao pode ser menor ou igual a zero");
       }
   }
-  public int getid_marca() {
+  public int getId_marca() {
       return this.id_marca;
   }
   
   
-   public void setid_modelo(int i) throws Exception {
+   public void setId_modelo(int i) throws Exception {
       if (i > 0){
             this.id_modelo = i;
          
@@ -49,12 +49,12 @@ public class Veiculo {
           throw new Exception("id nao pode ser menor ou igual a zero");
       }
   }
-  public int getid_modelo() {
+  public int getId_modelo() {
       return this.id_modelo;
   }
   
   
-  public void setid_cliente(int i) throws Exception {
+  public void setId_cliente(int i) throws Exception {
       if (i > 0){
             this.id_cliente = i;
          
@@ -62,7 +62,7 @@ public class Veiculo {
           throw new Exception("id nao pode ser menor ou igual a zero");
       }
   }
-  public int getid_cliente() {
+  public int getId_cliente() {
       return this.id_cliente;
   }
   

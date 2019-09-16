@@ -1,39 +1,121 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import model.Marca;
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author aluno
  */
 public class MarcaJava {
-    public void insert(Marca m) {
-        // inserir no banco de dados
-    }
     
+    /**
+     * 
+     */
+    private Conexao bd;
+    
+    
+    /**
+     * 
+     * @throws SQLException
+     * @throws ClassNotFoundException 
+     */
+    public MarcaJava() throws SQLException, ClassNotFoundException {
+        
+        this.bd = new Conexao();        
+    }    
+    
+    
+    /**
+     * 
+     * @param ma 
+     */
+    public void insert(Marca ma) throws SQLException {
+       
+        PreparedStatement stmt = bd.getConn().prepareStatement("INSERT INTO marca (nome) VALUES (? )");
          
-    public void update(Marca m) {
-       
+        stmt.setString(1, ma.getModelo());
+ 
+         
+        stmt.execute();
+        stmt.close();        
     }
     
-    public void delete(Marca m) {
     
+    /**
+     * 
+     * @param c 
+     */
+    public void update(Marca ma) {
+        
     }
     
-    public void getById(Marca m) {
-       
+    
+    /**
+     * 
+     * @param id 
+     */
+    public void delete(int id) {
+        
     }
     
-    public void getAllrows(Marca m) {
+    
+    /**
+     * 
+     * @param id
+     * @return 
+     */
+    public Marca  getById(int id) throws SQLException {
+        
+        Marca ma = new Marca ();
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca WHERE id = ? ");
+        stmt.setInt(1, id);
+        
+        return ma;
+    }
+    
+    
+    /**
+     * 
+     * @return 
+     * @throws java.sql.SQLException 
+     */
+    public ArrayList<Marca> getAllRows() throws SQLException, Exception {
      
+        ArrayList<Marca> lista_marcas = new ArrayList<Marca>();
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca ");
+        
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            Marca ma = new Marca();
+            
+            ma.setId(Integer.parseInt(rs.getString("descricao")));
+            ma.setNome(rs.getString("descricao"));
+       
+
+            lista_marcas.add(ma);
+        }
+
+        stmt.close();
+        
+        return lista_marcas;        
     }
     
-    public void getByDone(Marca m) {
-      
-    } 
+    
+    /**
+     * 
+     * @param descricao
+     * @return 
+     */
+    public ArrayList<Marca> findByDescricao(String descricao) {
+     
+        ArrayList<Marca> lista_marcas = new ArrayList<Marca>();
+        
+        return lista_marcas;        
+    }
 }

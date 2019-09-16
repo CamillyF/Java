@@ -33,4 +33,8 @@ public class Marca {
   public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getModelo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
