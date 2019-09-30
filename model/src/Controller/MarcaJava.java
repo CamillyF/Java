@@ -47,8 +47,15 @@ public class MarcaJava {
      * 
      * @param c 
      */
-    public void update(Marca ma) {
+    public void update(Marca ma)throws SQLException {
         
+        PreparedStatement stmt = bd.getConn().prepareStatement("UPDATE marca SET nome = ? WHERE id = ?");
+         
+        stmt.setString(1, ma.getNome());
+        stmt.setInt(4, ma.getId());
+         
+        stmt.execute();
+        stmt.close();    
     }
     
     
@@ -56,8 +63,12 @@ public class MarcaJava {
      * 
      * @param id 
      */
-    public void delete(int id) {
-        
+    public void delete(int id) throws SQLException {
+           
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca WHERE id = ? ");
+        stmt.setInt(1, id);
+        stmt.execute();
+        stmt.close(); 
     }
     
     
@@ -72,6 +83,8 @@ public class MarcaJava {
         
         PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca WHERE id = ? ");
         stmt.setInt(1, id);
+           stmt.execute();
+        stmt.close(); 
         
         return ma;
     }
@@ -94,8 +107,8 @@ public class MarcaJava {
 
             Marca ma = new Marca();
             
-            ma.setId(Integer.parseInt(rs.getString("descricao")));
-            ma.setNome(rs.getString("descricao"));
+            ma.setId(Integer.parseInt(rs.getString("id")));
+            ma.setNome(rs.getString("Nome"));
        
 
             lista_marcas.add(ma);
@@ -112,10 +125,24 @@ public class MarcaJava {
      * @param descricao
      * @return 
      */
-    public ArrayList<Marca> findByDescricao(String descricao) {
+    public ArrayList<Marca> findByDescricao(String _nome) throws SQLException, Exception {
      
         ArrayList<Marca> lista_marcas = new ArrayList<Marca>();
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca WHERE nome LIKE '%" + _nome + "%'");
         
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            Marca ma = new Marca();
+            
+            ma.setId(Integer.parseInt(rs.getString("id_marca")));
+            ma.setNome(rs.getString("nome"));
+
+            lista_marcas.add(ma);
+        }
+
+        stmt.close();
         return lista_marcas;        
     }
 }

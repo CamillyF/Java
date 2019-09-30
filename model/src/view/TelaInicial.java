@@ -167,7 +167,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(null,"Deseja alterar sua senha?");
+        JOptionPane.showConfirmDialog(null,"Deseja alterar sua senha?");  
         AlterarSenha e = new AlterarSenha();
         e.setVisible(true);
     }//GEN-LAST:event_jRadioButton1ActionPerformed

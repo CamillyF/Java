@@ -54,8 +54,17 @@ public class ProprietarioJava {
      * 
      * @param p 
      */
-    public void update(Proprietario p) {
-        
+    public void update(Proprietario p) throws SQLException {
+      PreparedStatement stmt = bd.getConn().prepareStatement("UPDATE proprietario SET lucros = ?, gastos = ?, nome = ?, acesso_locacao = ? WHERE id_prporietario = ?");
+         
+        stmt.setInt(1, p.getLucros());
+        stmt.setString(2, p.getNome());
+        stmt.setString(3, p.getAcessoLocacao());
+        stmt.setInt(4, p.getGastos());
+        stmt.setInt(4, p.getId());
+         
+        stmt.execute();
+        stmt.close();    
     }
     
     
@@ -63,7 +72,12 @@ public class ProprietarioJava {
      * 
      * @param id 
      */
-    public void delete(int id) {
+    public void delete(int id) throws SQLException {
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM proprietario WHERE id = ? ");
+        stmt.setInt(1, id);
+        stmt.execute();
+        stmt.close();  {
         
     }
     
@@ -73,12 +87,15 @@ public class ProprietarioJava {
      * @param id
      * @return 
      */
+
     public Proprietario getById(int id) throws SQLException {
         
         Proprietario p = new Proprietario();
         
         PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM proprietario WHERE id = ? ");
         stmt.setInt(1, id);
+         stmt.execute();
+        stmt.close(); 
         
         return p;
     }
@@ -101,11 +118,11 @@ public class ProprietarioJava {
 
             Proprietario p = new Proprietario();
             
-            p.setId(Integer.parseInt(rs.getString("descricao")));
-            p.setLucros(Integer.parseInt(rs.getString("descricao")));
-            p.setGastos(Integer.parseInt(rs.getString("descricao")));
-            p.setNome(rs.getString("descricao"));
-            p.setAcessoLocacao(rs.getString("descricao"));
+            p.setId(Integer.parseInt(rs.getString("id_proprietario")));
+            p.setLucros(Integer.parseInt(rs.getString("lucros")));
+            p.setGastos(Integer.parseInt(rs.getString("gastos")));
+            p.setNome(rs.getString("nome"));
+            p.setAcessoLocacao(rs.getString("acesso_locacao"));
 
             lista_proprietario.add(p);
         }
@@ -121,10 +138,28 @@ public class ProprietarioJava {
      * @param descricao
      * @return 
      */
-    public ArrayList<Proprietario> findByDescricao(String descricao) {
+    public ArrayList<Proprietario> findByDescricao(String _nome ) throws SQLException, Exception {
      
         ArrayList<Proprietario> lista_proprietario = new ArrayList<Proprietario>();
         
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM proprietario WHERE nome LIKE '%" + _nome + "%'");
+        
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            Proprietario p = new Proprietario();
+            
+            p.setId(Integer.parseInt(rs.getString("id_proprietario")));
+            p.setLucros(Integer.parseInt(rs.getString("lucros")));
+            p.setGastos(Integer.parseInt(rs.getString("gastos")));
+            p.setNome(rs.getString("nome"));
+            p.setAcessoLocacao(rs.getString("acesso_locacao"));
+
+            lista_proprietario.add(p);
+        }
+
+        stmt.close();
         return lista_proprietario;        
     }
 }

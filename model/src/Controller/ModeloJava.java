@@ -47,18 +47,31 @@ public class ModeloJava{
      * 
      * @param m 
      */
-    public void update(Modelo m) {
+    public void update(Modelo m)throws SQLException {
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("UPDATE modelo SET nome = ? WHERE id = ?");
+         
+        stmt.setString(1, m.getNome());
+        stmt.setInt(4, m.getId());
+         
+        stmt.execute();
+        stmt.close();         {
         
     }
-    
     
     /**
-     * 
-     * @param id 
+     *
+     * @param id
+     * @throws SQLException
      */
-    public void delete(int id) {
+    public void delete(int id) throws SQLException {
         
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM carro WHERE id = ? ");
+        stmt.setInt(1, id);
+        stmt.execute();
+        stmt.close(); 
     }
+    
     
     
     /**
@@ -72,6 +85,8 @@ public class ModeloJava{
         
         PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM modelo WHERE id = ? ");
         stmt.setInt(1, id);
+        stmt.execute();
+        stmt.close(); 
         
         return m;
     }
@@ -112,11 +127,31 @@ public class ModeloJava{
      * @param descricao
      * @return 
      */
-    public ArrayList<Modelo> findByDescricao(String descricao) {
+    public ArrayList<Modelo> findByDescricao(String _nome) throws Exception {
+     
+         ArrayList<Modelo> lista_carros = new ArrayList<Modelo>();
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM modelo WHERE nome LIKE '%" + _nome + "%'");
+        
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            Modelo m = new Modelo();
+            
+            m.setId(Integer.parseInt(rs.getString("id_modelo")));
+            m.setNome(rs.getString("nome"));
+
+            lista_carros.add(m);
+        }
+
+        stmt.close(); {
      
         ArrayList<Modelo> lista_modelos = new ArrayList<Modelo>();
         
-        return lista_modelos;        
+        return lista_modelos;     }
     }
-}
+}   
+   
+
 
