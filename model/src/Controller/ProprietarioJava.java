@@ -77,18 +77,16 @@ public class ProprietarioJava {
         PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM proprietario WHERE id = ? ");
         stmt.setInt(1, id);
         stmt.execute();
-        stmt.close();  {
+        stmt.close();  
         
     }
-    
-    
-    /**
-     * 
-     * @param id
-     * @return 
-     */
 
-    public Proprietario getById(int id) throws SQLException {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Proprietario getById(int id) throws SQLException{
         
         Proprietario p = new Proprietario();
         
@@ -117,8 +115,7 @@ public class ProprietarioJava {
         while (rs.next()) {
 
             Proprietario p = new Proprietario();
-            
-            p.setId(Integer.parseInt(rs.getString("id_proprietario")));
+       
             p.setLucros(Integer.parseInt(rs.getString("lucros")));
             p.setGastos(Integer.parseInt(rs.getString("gastos")));
             p.setNome(rs.getString("nome"));
@@ -138,7 +135,7 @@ public class ProprietarioJava {
      * @param descricao
      * @return 
      */
-    public ArrayList<Proprietario> findByDescricao(String _nome ) throws SQLException, Exception {
+    public ArrayList<Proprietario> findByDescricao(String _nome ) throws Exception {
      
         ArrayList<Proprietario> lista_proprietario = new ArrayList<Proprietario>();
         

@@ -55,7 +55,7 @@ public class ModeloJava{
         stmt.setInt(4, m.getId());
          
         stmt.execute();
-        stmt.close();         {
+        stmt.close();         
         
     }
     
@@ -66,10 +66,10 @@ public class ModeloJava{
      */
     public void delete(int id) throws SQLException {
         
-        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM carro WHERE id = ? ");
-        stmt.setInt(1, id);
-        stmt.execute();
-        stmt.close(); 
+        try (PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM modelo WHERE id = ? ")) {
+            stmt.setInt(1, id);
+            stmt.execute();
+        } 
     }
     
     
@@ -109,8 +109,8 @@ public class ModeloJava{
 
             Modelo m = new Modelo();
             
-            m.setId(Integer.parseInt (rs.getString("descricao")));
-            m.setNome(rs.getString("descricao"));
+            m.setId(Integer.parseInt (rs.getString("id_modelo")));
+            m.setNome(rs.getString("nome"));
          
 
             lista_modelos.add(m);
@@ -129,7 +129,7 @@ public class ModeloJava{
      */
     public ArrayList<Modelo> findByDescricao(String _nome) throws Exception {
      
-         ArrayList<Modelo> lista_carros = new ArrayList<Modelo>();
+         ArrayList<Modelo> lista_modelos = new ArrayList<Modelo>();
         
         PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM modelo WHERE nome LIKE '%" + _nome + "%'");
         
@@ -142,14 +142,11 @@ public class ModeloJava{
             m.setId(Integer.parseInt(rs.getString("id_modelo")));
             m.setNome(rs.getString("nome"));
 
-            lista_carros.add(m);
+            lista_modelos.add(m);
         }
 
-        stmt.close(); {
-     
-        ArrayList<Modelo> lista_modelos = new ArrayList<Modelo>();
-        
-        return lista_modelos;     }
+        stmt.close(); 
+        return lista_modelos;
     }
 }   
    
