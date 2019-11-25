@@ -74,7 +74,7 @@ public class ProprietarioJava {
      */
     public void delete(int id) throws SQLException {
         
-        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM proprietario WHERE id = ? ");
+        PreparedStatement stmt = bd.getConn().prepareStatement("DELETE  FROM proprietario WHERE id = ? ");
         stmt.setInt(1, id);
         stmt.execute();
         stmt.close();  

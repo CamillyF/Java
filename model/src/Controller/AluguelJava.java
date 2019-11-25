@@ -72,7 +72,7 @@ public class AluguelJava {
     
     public void delete(int ID) throws SQLException {
      
-        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM aluguel WHERE id = ? ");
+        PreparedStatement stmt = bd.getConn().prepareStatement("DELETE FROM aluguel WHERE id = ? ");
         stmt.setInt(1, ID);
         stmt.execute();
         stmt.close(); 

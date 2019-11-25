@@ -66,7 +66,7 @@ public class ModeloJava{
      */
     public void delete(int id) throws SQLException {
         
-        try (PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM modelo WHERE id = ? ")) {
+        try (PreparedStatement stmt = bd.getConn().prepareStatement("DELETE FROM modelo WHERE id = ? ")) {
             stmt.setInt(1, id);
             stmt.execute();
         } 

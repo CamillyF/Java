@@ -17,7 +17,7 @@ import java.sql.*;
  */
 public class Conexao {
     
-    private static final String host = "localhost";
+    private static final String host = "localhost:3308";
     private static String database = "locadora";
     private static String usuario = "root";
     private static String senha = "";

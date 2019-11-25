@@ -48,7 +48,7 @@ public class AluguelVeiculo extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(".");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

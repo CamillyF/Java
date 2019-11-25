@@ -82,7 +82,7 @@ public class VeiculoJava {
      */
     public void delete(int id) throws SQLException {
         
-        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM veiculo WHERE id = ? ");
+        PreparedStatement stmt = bd.getConn().prepareStatement("DELETE  FROM veiculo WHERE id = ? ");
         stmt.setInt(1, id);
         stmt.execute();
         stmt.close(); 
@@ -174,5 +174,9 @@ public class VeiculoJava {
 
         stmt.close();
         return lista_veiculos;        
+    }
+
+    public void insert(VeiculoJava v) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

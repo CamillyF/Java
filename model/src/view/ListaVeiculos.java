@@ -33,7 +33,7 @@ public class ListaVeiculos extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTextField1.setFont(new java.awt.Font("Roboto Th", 0, 11)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 153, 102));

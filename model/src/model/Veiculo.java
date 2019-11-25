@@ -11,8 +11,8 @@ package model;
  */
 public class Veiculo {
     private int id_veiculo, id_marca, id_modelo, id_cliente;
-    private String placa, cadastro, cor, ano, cadastro_loc;
-    
+    private String placa, cadastro, cor, ano, cadastro_loc, modelo, marca;
+     
        
   public void setId(int i) throws Exception {
       if (i > 0){
@@ -105,6 +105,25 @@ public class Veiculo {
   public void setCadastroLoc(String cadastro_loc) {
         this.cadastro_loc = cadastro_loc;
     }
+
+   public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    
+
+ 
 }
 
     

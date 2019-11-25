@@ -65,7 +65,7 @@ public class MarcaJava {
      */
     public void delete(int id) throws SQLException {
            
-        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM marca WHERE id = ? ");
+        PreparedStatement stmt = bd.getConn().prepareStatement("DELETE  FROM marca WHERE id = ? ");
         stmt.setInt(1, id);
         stmt.execute();
         stmt.close(); 

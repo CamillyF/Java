@@ -74,7 +74,7 @@ public class ClienteJava {
      * @param id 
      */
     public void delete(int Id) throws SQLException {
-     PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM cliente WHERE id = ? ");
+     PreparedStatement stmt = bd.getConn().prepareStatement("DELETE FROM cliente WHERE id = ? ");
         stmt.setInt(1, Id);
         stmt.execute();
         stmt.close(); 
