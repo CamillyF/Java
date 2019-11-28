@@ -346,22 +346,43 @@ public class CadastroCliente extends javax.swing.JFrame {
             
             // Criando o modelo de carro.
             Cliente c = new Cliente();
-
-            // Abastecendo o modelo com as informações digitadas pelo usuário.
+            
+            String telefone           = txtTeleCont.getText().replaceAll("[/(/)/ /[-]/]", "");
+            String telefoneEmergencia = txtTeleEmer.getText().replaceAll("[/(/)/ /[-]/]", "");
+            String cnh                = txtCnh.getText();
+            String dataNasc           = txtDataNas.getText();
+            String cpf                = txtCpf.getText().replaceAll("[/(/)/ /[-]/[.]/]", "");
+            
+            
+            c.setDatanas(txtDataNas.getText());
+            c.setTelefone(Integer.parseInt(telefone));
+            c.setTelefonemer(Integer.parseInt(telefoneEmergencia)); 
+            c.setCpf(cpf);
+            c.setCnh(cnh);
+            c.setDatanas(dataNasc);
+            
             c.setNome(txtNome.getText());
-            c.setEndereco(txtEnd.getText());
+             c.setEndereco(txtEnd.getText());
             c.setNumero(Integer.parseInt(txtN.getText()));
             c.setComplemento(txtComp.getText()); 
             c.setCidade(txtCidade.getSelectedItem().toString()); 
             c.setEstado(txtEstado.getSelectedItem().toString()); 
-            c.setDatanas(txtDataNas.getText());
-            c.setTelefone(Integer.parseInt(txtTeleCont.getText().replaceAll("[/(/)/ /[-]/]", "")));
-            //c.setTelefonemer(Integer.parseInt(txtTeleEmer.getText().replaceAll("[/(/)/ /[-]/]", ""))); 
             c.setRG(txtRg.getText()); 
-            c.setCpf(txtCpf.getText().replaceAll("[/(/)/ /[-]/[.]/]", ""));
-            c.setCnh(Integer.parseInt(txtCnh.getText()));
-            c.setRenda(Integer.parseInt(txtDataNas.getText()));
-            c.setSexo(txtSexo.getSelectedItem().toString());
+            
+            
+           // System.out.println();
+            
+            
+
+            // Abastecendo o modelo com as informações digitadas pelo usuário.
+            /*;
+           
+            
+            
+           txtCpf.getText().replaceAll("[/(/)/ /[-]/[.]/]", ""));
+            ;
+            //c.setRenda(Integer.parseInt(txtDataNas.getText()));
+            //c.setSexo(txtSexo.getSelectedItem().toString());*/
             
            
 
@@ -369,7 +390,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             ClienteJava cc = new ClienteJava();
             
             // Chamando o método para inserir no banco de dados.
-           // cc.insert(c); 
+            cc.insert(c); 
             
             // Exbindo uma mensagem de confirmação.
             JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado com Sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
@@ -377,7 +398,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         } catch (Exception ex) {
             
             // Mostrando uma mensagem de erro, caso aconteça.
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Ocorreu um erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Ocorreu um erro na tela", JOptionPane.ERROR_MESSAGE);
         }
                                           
         

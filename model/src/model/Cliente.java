@@ -10,8 +10,8 @@ package model;
  * @author aluno
  */
 public class Cliente {
-    private int id_cliente, telefone, cnh, numero, telefonemer, renda ;
-    private String rg, nome, endereco, complemento, cpf, cidade, estado, sexo, datanas;
+    private int id_cliente, telefone, numero, telefonemer, renda ;
+    private String rg, nome, endereco, cnh, complemento, cpf, cidade, estado, sexo, datanas;
 
     public String getSexo() {
         return sexo;
@@ -41,8 +41,8 @@ public class Cliente {
         return datanas;
     }
 
-    public void setDatanas(String dtanas) {
-        this.datanas = dtanas;
+    public void setDatanas(String datanas) {
+        this.datanas = datanas;
     }
 
     public int getTelefonemer() {
@@ -98,11 +98,11 @@ public class Cliente {
       return this.id_cliente;
   }
   
-  public int getCnh() {
+  public String getCnh() {
         return this.cnh;
     }
 
-  public void setCnh(int cnh) {
+  public void setCnh(String cnh) {
         this.cnh = cnh;
     }
   
